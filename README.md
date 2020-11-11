@@ -12,14 +12,14 @@ Customized GitHub Action integration with Slack inspired by [rtCamp/action-slack
 
 ```yaml
  - name: slack-notification-for-failure
-   uses: codigube/github-action-notify-slack@v1.0.0
+   uses: codigube/github-actions-notify-slack@v3.0.0
    if: failure() || cancelled()
    env:
     SLACK_COLOR: '#DF5A49'
     SLACK_MESSAGE: 'Job ${{ github.job }} failed'
 
 - name: slack-notification-for-success
-  uses: codigube/github-action-notify-slack@v1.0.0
+   uses: codigube/github-actions-notify-slack@v3.0.0
   if: success()
   env:
     SLACK_MESSAGE: 'Job ${{ github.job }} succeeded'
