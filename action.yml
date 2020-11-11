@@ -1,4 +1,4 @@
-name: 'Github Action Notifier - Slack'
+name: 'Github Actions Notifier - Slack'
 description: 'This action will send a notification to Slack'
 author: 'codigube'
 runs:
