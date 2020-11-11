@@ -6,8 +6,8 @@ LABEL "com.github.actions.name"="Slack Notify"
 LABEL "com.github.actions.description"="This action will send notification to Slack"
 
 
-WORKDIR ${GOPATH}/src/github.com/rtcamp/action-slack-notify
-COPY main.go ${GOPATH}/src/github.com/rtcamp/action-slack-notify
+WORKDIR ${GOPATH}/src/github.com/codigube/github-action-notify-slack
+COPY main.go ${GOPATH}/src/github.com/codigube/github-action-notify-slack
 
 ENV CGO_ENABLED 0
 ENV GOOS linux
@@ -33,12 +33,6 @@ RUN apk update \
 	rsync && \
 	pip install shyaml && \
 	rm -rf /var/cache/apk/*
-
-# Setup Vault
-RUN wget https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip && \
-	unzip vault_${VAULT_VERSION}_linux_amd64.zip && \
-	rm vault_${VAULT_VERSION}_linux_amd64.zip && \
-	mv vault /usr/local/bin/vault
 
 # fix the missing dependency - https://stackoverflow.com/a/35613430
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
